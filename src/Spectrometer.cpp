@@ -123,10 +123,10 @@ void Spectrometer::loop()
         }
     }
 
-    arduinoFFT FFT(vReal, vImag, SAMPLES, samplingFrequency);
-    FFT.Windowing(FFT_WIN_TYP_HAMMING, FFT_FORWARD);
-    FFT.Compute(FFT_FORWARD);
-    FFT.ComplexToMagnitude();
+    ArduinoFFT<double> FFT(vReal, vImag, SAMPLES, samplingFrequency);
+    FFT.windowing(FFT_WIN_TYP_HAMMING, FFT_FORWARD);
+    FFT.compute(FFT_FORWARD);
+    FFT.complexToMagnitude();
 
     delete[] vImag;
 
